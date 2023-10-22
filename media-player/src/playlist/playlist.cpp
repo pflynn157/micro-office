@@ -24,21 +24,19 @@
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
 // EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#pragma once
+#include "playlist.hpp"
+#include "listwidget.hpp"
+#include "settingswidget.hpp"
 
-#include <QMenu>
-#include <QAction>
+PlayList::PlayList() {
+    this->setWindowTitle("Playlist");
 
-class VideoPaneMenu : public QMenu {
-	Q_OBJECT
-public:
-	VideoPaneMenu();
-	~VideoPaneMenu();
-private:
-	QAction *open, *play, *pause, *stop;
-private slots:
-	void onOpenClicked();
-	void onPlayClicked();
-	void onPauseClicked();
-	void onStopClicked();
-}; 
+	tabs = new QTabWidget;
+    this->setWidget(tabs);
+	
+	tabs->addTab(new PlayListWidget,"Playlist");
+	tabs->addTab(new PlaylistSettingsWidget,"Settings");
+}
+
+PlayList::~PlayList() {
+} 

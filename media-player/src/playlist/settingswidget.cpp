@@ -27,8 +27,8 @@
 #include <QPushButton>
 #include <QRadioButton>
 
-#include "settingswidget.hh"
-#include "settings.hh"
+#include "settingswidget.hpp"
+#include "settings.hpp"
 
 PlaylistSettings playlistSettings;
 

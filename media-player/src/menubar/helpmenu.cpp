@@ -1,4 +1,4 @@
-// Copyright 2018 Patrick Flynn
+// Copyright 2017 Patrick Flynn
 //
 // Redistribution and use in source and binary forms, with or without modification,
 // are permitted provided that the following conditions are met:
@@ -24,31 +24,42 @@
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
 // EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#pragma once
+#include <QMenu>
+#include <QAction>
+#include <QMessageBox>
+#include <QApplication>
+#include <QPixmap>
 
-#include <QMainWindow>
-#include <QWidget>
-#include <QVBoxLayout>
-#include <QKeyEvent>
+#include "helpmenu.hpp"
 
-#include "playlist/playlist.hh"
-#include "videopane.hh"
-#include "control.hh"
-#include "tray.hh"
+HelpMenu::HelpMenu() {
+    this->setTitle("Help");
 
-class Window : public QMainWindow {
-    Q_OBJECT
-public:
-    Window();
-    void setHeadless(bool headless);
-    static void dspPlaylist();
-protected:
-	void keyPressEvent(QKeyEvent *event);
-	void closeEvent(QCloseEvent *event);
-private:
-    static PlayList *playlist;
-    VideoPane *videopane;
-    ControlBar *controller;
-    SysTray *systray;
-    bool isHeadless;
-};
+    about = new QAction("About",this);
+    aboutQt = new QAction("About Qt",this);
+
+    QPixmap aboutIcon(":/icons/help-about.svg");
+#ifdef NO_THEME_ICONS
+    about->setIcon(aboutIcon);
+#else
+    about->setIcon(QIcon::fromTheme("help-about",aboutIcon));
+#endif
+
+    connect(about,SIGNAL(triggered(bool)),this,SLOT(onAboutClicked()));
+    connect(aboutQt,SIGNAL(triggered(bool)),qApp,SLOT(aboutQt()));
+
+    this->addAction(about);
+    this->addAction(aboutQt);
+}
+
+HelpMenu::~HelpMenu() {
+    delete about;
+    delete aboutQt;
+}
+
+void HelpMenu::onAboutClicked() {
+    QMessageBox msg;
+    msg.setText("CppMediaPlayer\n"
+                "A music and video player written in C++ using Qt.\n\n");
+    msg.exec();
+}

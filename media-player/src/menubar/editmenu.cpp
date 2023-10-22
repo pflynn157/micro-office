@@ -1,4 +1,4 @@
-// Copyright 2018 Patrick Flynn
+// Copyright 2017 Patrick Flynn
 //
 // Redistribution and use in source and binary forms, with or without modification,
 // are permitted provided that the following conditions are met:
@@ -24,30 +24,31 @@
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
 // EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#pragma once
+#include <QMenu>
+#include <QAction>
+#include <QPixmap>
 
-#include <QToolBar>
-#include <QToolButton>
-#include <QSlider>
+#include "editmenu.hpp"
+#include "../settings/settings_dialog.hpp"
 
-#include "seekbar.hh"
+EditMenu::EditMenu() {
+	this->setTitle("Edit");
+	
+    settings = new QAction("Settings",this);
 
-class ControlBar : public QToolBar {
-    Q_OBJECT
-public:
-    ControlBar();
-    ~ControlBar();
-private:
-    QToolButton *open, *play, *pause, *stop, *back, *next;
-    SeekBar *seekbar;
-    QToolButton *volume;
-    QSlider *volumeSlider;
-private slots:
-    void onOpenClicked();
-    void onPlayClicked();
-    void onPauseClicked();
-    void onStopClicked();
-    void onBackClicked();
-    void onNextClicked();
-    void onVolumeSliderClicked(int val);
-};
+    QPixmap settingsIcon(":/icons/preferences-system.svg");
+    settings->setIcon(QIcon::fromTheme("preferences-system",settingsIcon));
+	
+    connect(settings,&QAction::triggered,this,&EditMenu::onSettingsClicked);
+	
+	this->addAction(settings);
+}
+
+EditMenu::~EditMenu() {
+	delete settings;
+}
+
+void EditMenu::onSettingsClicked() {
+	SettingsDialog diag;
+	diag.exec();
+}

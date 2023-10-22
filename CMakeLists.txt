@@ -9,10 +9,13 @@ find_package(Qt6 REQUIRED COMPONENTS
     Core
     Widgets
     Gui
+    Multimedia
+	MultimediaWidgets
 )
 
 add_compile_options(-std=c++17)
 
 #add_subdirectory(file-explorer)
 #add_subdirectory(spreadsheets)
+add_subdirectory(media-player)
 

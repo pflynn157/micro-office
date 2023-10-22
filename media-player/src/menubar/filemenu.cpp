@@ -31,10 +31,10 @@
 #include <QVector>
 #include <QList>
 
-#include "filemenu.hh"
-#include "../actions.hh"
-#include "recent.hh"
-#include "recent_action.hh"
+#include "filemenu.hpp"
+#include "../actions.hpp"
+#include "recent.hpp"
+#include "recent_action.hpp"
 
 QMenu *FileMenu::recent;
 
@@ -54,8 +54,8 @@ FileMenu::FileMenu() {
     connect(open,&QAction::triggered,this,&FileMenu::onOpenClicked);
     connect(quit,&QAction::triggered,qApp,&QApplication::quit);
 
-    open->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_O));
-    quit->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_Q));
+    open->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_O));
+    quit->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_Q));
 	
 	refreshRecentEntries();
 

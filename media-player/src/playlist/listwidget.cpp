@@ -29,17 +29,15 @@
 #include <QIcon>
 #include <QFileDialog>
 #include <QListWidgetItem>
-#include <QMediaPlaylist>
-#include <QMediaContent>
 #include <QUrl>
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QTextStream>
 #include <QPixmap>
 
-#include "listwidget.hh"
-#include "../videopane.hh"
-#include "settings.hh"
+#include "listwidget.hpp"
+#include "../videopane.hpp"
+#include "settings.hpp"
 
 PlayListWidget::PlayListWidget() {
 	this->setFrameShape(QFrame::NoFrame);
@@ -280,14 +278,14 @@ void PlayListWidget::onClearItemsClicked() {
 }
 
 void PlayListWidget::onPlayClicked() {
-	QMediaPlaylist *playlist = new QMediaPlaylist;
+	/*QMediaPlaylist *playlist = new QMediaPlaylist;
 	for (int i = 0; i<playlistItems->count(); i++) {
 		playlist->addMedia(QMediaContent(QUrl::fromLocalFile(playlistItems->item(i)->text())));
 	}
 	if (playlistSettings.random) {
 		playlist->setPlaybackMode(QMediaPlaylist::Random);
 	}
-	VideoPane::setAndRunPlaylist(playlist);
+	VideoPane::setAndRunPlaylist(playlist);*/
 }
 
 void PlayListWidget::onNewListClicked() {

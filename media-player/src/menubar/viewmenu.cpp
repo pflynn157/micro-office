@@ -1,4 +1,4 @@
-// Copyright 2017 Patrick Flynn
+// Copyright 2018 Patrick Flynn
 //
 // Redistribution and use in source and binary forms, with or without modification,
 // are permitted provided that the following conditions are met:
@@ -24,12 +24,42 @@
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
 // EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#pragma once
+#include <QMenu>
+#include <QAction>
+#include <QPixmap>
 
-#include "window.hh"
+#include "viewmenu.hpp"
+#include "../actions.hpp"
+#include "../window.hpp"
 
-struct Vars {
-    Window *window;
-};
+ViewMenu::ViewMenu() {
+    this->setTitle("View");
 
-extern Vars globalVars;
+    fullScreen = new QAction("Fullscreen",this);
+    playlist = new QAction("Show Playlist",this);
+
+    QPixmap fullScreenIcon(":/icons/view-fullscreen.svg");
+#ifdef NO_THEME_ICONS
+    fullScreen->setIcon(fullScreenIcon);
+#else
+    fullScreen->setIcon(QIcon::fromTheme("view-fullscreen",fullScreenIcon));
+#endif
+
+    connect(fullScreen,SIGNAL(triggered(bool)),this,SLOT(onFullScreenClicked()));
+    connect(playlist,&QAction::triggered,this,&ViewMenu::onPlaylistClicked);
+
+    this->addAction(fullScreen);
+    this->addAction(playlist);
+}
+
+ViewMenu::~ViewMenu() {
+    delete fullScreen;
+}
+
+void ViewMenu::onFullScreenClicked() {
+	Actions::setWindowFullscreen();
+}
+
+void ViewMenu::onPlaylistClicked() {
+    Window::dspPlaylist();
+}

@@ -24,38 +24,26 @@
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
 // EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#include <QVariant>
-#include <cpplib/settings.hh>
+#include <QAction>
+#include <QString>
+#include <QWidget>
+#include <QUrl>
 
-#include "settings_dialog.hh"
-#include "ui_settings_dialog.h"
+#include "recent_action.hpp"
+#include "../videopane.hpp"
+#include "recent.hpp"
+#include "filemenu.hpp"
 
-using namespace CppLib;
-
-SettingsDialog::SettingsDialog(QWidget *parent) : QDialog(parent), ui(new Ui::SettingsDialog) {
-    ui->setupUi(this);
-
-    int volumeValue = QVariant(Settings::getSetting("volume","10")).toInt();
-    bool showTaskbar = QVariant(Settings::getSetting("taskbar/icon","true")).toBool();
-
-    ui->volumeSpinner->setValue(volumeValue);
-    ui->taskbarIcon->setChecked(showTaskbar);
+RecentAction::RecentAction(QString text, QWidget *parent) : QAction(parent) {
+	this->setText(text);
+	connect(this,SIGNAL(triggered(bool)),this,SLOT(onClicked()));
 }
 
-SettingsDialog::~SettingsDialog() {
-    delete ui;
-}
-
-void SettingsDialog::on_saveButton_clicked() {
-    int volumeValue = ui->volumeSpinner->value();
-    bool showTaskbar = ui->taskbarIcon->isChecked();
-
-    Settings::writeSetting("volume",QVariant(volumeValue).toString());
-    Settings::writeSetting("taskbar/icon",QVariant(showTaskbar).toString());
-
-    this->close();
-}
-
-void SettingsDialog::on_cancelButton_clicked() {
-    this->close();
+void RecentAction::onClicked() {
+	Recent recent;
+	recent.addRecent(this->text());
+	recent.write();
+	FileMenu::refreshRecentEntries();
+	//VideoPane::player->setMedia(QMediaContent(QUrl::fromLocalFile(this->text())));
+	VideoPane::player->play();
 }
