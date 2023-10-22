@@ -14,5 +14,5 @@ find_package(Qt6 REQUIRED COMPONENTS
 add_compile_options(-std=c++17)
 
 add_subdirectory(file-explorer)
-#add_subdirectory(spreadsheets)
+add_subdirectory(spreadsheets)
 
