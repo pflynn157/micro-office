@@ -324,7 +324,7 @@ ListWidget::ListWidget(BrowserWidget *b) {
 
 void ListWidget::mousePressEvent(QMouseEvent *event) {
     if (event->button()==Qt::LeftButton) {
-        QListWidgetItem *item = this->itemAt(event->x(),event->y());
+        QListWidgetItem *item = this->itemAt(event->position().x(), event->position().y());
         if (item==nullptr) {
             QList<QListWidgetItem *> selectedItems = this->selectedItems();
             for (int i = 0; i<selectedItems.size(); i++) {
@@ -333,7 +333,7 @@ void ListWidget::mousePressEvent(QMouseEvent *event) {
             emit bWidget->selectionState(false);
         }
     } else if (event->button()==Qt::RightButton) {
-        QListWidgetItem *item = this->itemAt(event->x(),event->y());
+        QListWidgetItem *item = this->itemAt(event->position().x(), event->position().y());
         if (item!=nullptr) {
             if (this->selectedItems().size()>1) {
                 MultiContextMenu menu(bWidget);

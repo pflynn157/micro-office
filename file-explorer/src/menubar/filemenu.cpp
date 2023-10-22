@@ -44,9 +44,9 @@ FileMenu::FileMenu(Window *p) {
     quit = new QAction(QIcon::fromTheme("application-exit",QPixmap(":/icons/application-exit.svg")),"Exit",this);
 
     newTab->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_T));
-    closeTab->setShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT+Qt::Key_T));
+    closeTab->setShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_T));
     newFile->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_N));
-    newFolder->setShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT+Qt::Key_N));
+    newFolder->setShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_N));
     quit->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_Q));
 
     connect(newTab,&QAction::triggered,this,&FileMenu::onNewTabClicked);

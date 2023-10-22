@@ -47,7 +47,7 @@ EditMenu::EditMenu() {
     copy->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_C));
     paste->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_V));
     trash->setShortcut(QKeySequence(Qt::Key_Delete));
-    deleteFile->setShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT+Qt::Key_D));
+    deleteFile->setShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_D));
 
     connect(selectAll,&QAction::triggered,this,&EditMenu::onSelectAllClicked);
     connect(cut,&QAction::triggered,this,&EditMenu::onCutClicked);
