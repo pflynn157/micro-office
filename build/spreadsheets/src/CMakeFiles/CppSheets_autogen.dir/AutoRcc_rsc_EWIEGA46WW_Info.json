@@ -1,0 +1,26 @@
+{
+	"BUILD_DIR" : "/home/patrick/Projects/sr.ht/micro-desktop/build/spreadsheets/src/CppSheets_autogen",
+	"CMAKE_BINARY_DIR" : "/home/patrick/Projects/sr.ht/micro-desktop/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/patrick/Projects/sr.ht/micro-desktop/build/spreadsheets/src",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/patrick/Projects/sr.ht/micro-desktop/spreadsheets/src",
+	"CMAKE_SOURCE_DIR" : "/home/patrick/Projects/sr.ht/micro-desktop",
+	"INCLUDE_DIR" : "/home/patrick/Projects/sr.ht/micro-desktop/build/spreadsheets/src/CppSheets_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/patrick/Projects/sr.ht/micro-desktop/spreadsheets/src/style.css",
+		"/home/patrick/Projects/sr.ht/micro-desktop/spreadsheets/src/headers.txt",
+		"/home/patrick/Projects/sr.ht/micro-desktop/spreadsheets/src/icons/format-text-underline.svg",
+		"/home/patrick/Projects/sr.ht/micro-desktop/spreadsheets/src/icons/format-text-italic.svg",
+		"/home/patrick/Projects/sr.ht/micro-desktop/spreadsheets/src/icons/format-text-bold.svg"
+	],
+	"LOCK_FILE" : "/home/patrick/Projects/sr.ht/micro-desktop/build/spreadsheets/src/CMakeFiles/CppSheets_autogen.dir/AutoRcc_rsc_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "rsc" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_rsc.cpp",
+	"RCC_EXECUTABLE" : "/usr/lib/qt6/libexec/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/patrick/Projects/sr.ht/micro-desktop/build/spreadsheets/src/CMakeFiles/CppSheets_autogen.dir/AutoRcc_rsc_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/patrick/Projects/sr.ht/micro-desktop/spreadsheets/src/rsc.qrc",
+	"VERBOSITY" : 0
+}
