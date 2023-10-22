@@ -209,15 +209,6 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
-//Value Computed by CMake
-CppExplorer_BINARY_DIR:STATIC=/home/patrick/Projects/sr.ht/micro-desktop/build/file-explorer
-
-//Value Computed by CMake
-CppExplorer_IS_TOP_LEVEL:STATIC=OFF
-
-//Value Computed by CMake
-CppExplorer_SOURCE_DIR:STATIC=/home/patrick/Projects/sr.ht/micro-desktop/file-explorer
-
 //Path to a file.
 OPENGL_EGL_INCLUDE_DIR:PATH=/usr/include
 
@@ -254,18 +245,6 @@ QT_ADDITIONAL_HOST_PACKAGES_PREFIX_PATH:STRING=
 
 //Additional directories where find(Qt6 ...) components are searched
 QT_ADDITIONAL_PACKAGES_PREFIX_PATH:STRING=
-
-//The directory containing a CMake configuration file for Qt5Core.
-Qt5Core_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5Core
-
-//The directory containing a CMake configuration file for Qt5Gui.
-Qt5Gui_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui
-
-//The directory containing a CMake configuration file for Qt5Widgets.
-Qt5Widgets_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets
-
-//The directory containing a CMake configuration file for Qt5.
-Qt5_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5
 
 //The directory containing a CMake configuration file for Qt6CoreTools.
 Qt6CoreTools_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt6CoreTools
@@ -312,8 +291,14 @@ XKB_INCLUDE_DIR:PATH=XKB_INCLUDE_DIR-NOTFOUND
 //Path to a library.
 XKB_LIBRARY:FILEPATH=XKB_LIBRARY-NOTFOUND
 
-//Path to a library.
-libsettings:FILEPATH=libsettings-NOTFOUND
+//Value Computed by CMake
+file-explorer_BINARY_DIR:STATIC=/home/patrick/Projects/sr.ht/micro-desktop/build/file-explorer
+
+//Value Computed by CMake
+file-explorer_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+file-explorer_SOURCE_DIR:STATIC=/home/patrick/Projects/sr.ht/micro-desktop/file-explorer
 
 //Value Computed by CMake
 micro-desktop_BINARY_DIR:STATIC=/home/patrick/Projects/sr.ht/micro-desktop/build
@@ -433,7 +418,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
