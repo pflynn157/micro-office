@@ -1,2 +1,0 @@
-/usr/bin/ar qc libmath.a CMakeFiles/math.dir/math_autogen/mocs_compilation.cpp.o CMakeFiles/math.dir/chain.cpp.o CMakeFiles/math.dir/column.cpp.o
-/usr/bin/ranlib libmath.a

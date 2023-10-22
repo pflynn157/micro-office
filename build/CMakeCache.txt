@@ -14,9 +14,6 @@
 # EXTERNAL cache entries
 ########################
 
-//Set to ON to build performance benchmarks (in ./benchmarks)
-BENCHMARKS:BOOL=OFF
-
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
 
@@ -82,9 +79,6 @@ CMAKE_C_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 //Flags used by the C compiler during RELWITHDEBINFO builds.
 CMAKE_C_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
-//Set debug library postfix
-CMAKE_DEBUG_POSTFIX:STRING=d
-
 //Path to a program.
 CMAKE_DLLTOOL:FILEPATH=CMAKE_DLLTOOL-NOTFOUND
 
@@ -106,7 +100,7 @@ CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 //Enable/Disable output of compile commands during generation.
 CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=
 
-//default install path
+//Install path prefix, prepended onto install directories.
 CMAKE_INSTALL_PREFIX:PATH=/usr/local
 
 //Path to a program.
@@ -152,21 +146,6 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
 CMAKE_PROJECT_NAME:STATIC=micro-desktop
-
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION:STATIC=1.2
-
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION_MAJOR:STATIC=1
-
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION_MINOR:STATIC=2
-
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION_PATCH:STATIC=
-
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION_TWEAK:STATIC=
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -230,17 +209,14 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
-//Generate coverage data using gcov
-COVERAGE:BOOL=OFF
+//Value Computed by CMake
+CppExplorer_BINARY_DIR:STATIC=/home/patrick/Projects/sr.ht/micro-desktop/build/file-explorer
 
 //Value Computed by CMake
-CppSheets_BINARY_DIR:STATIC=/home/patrick/Projects/sr.ht/micro-desktop/build/spreadsheets
+CppExplorer_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
-CppSheets_IS_TOP_LEVEL:STATIC=OFF
-
-//Value Computed by CMake
-CppSheets_SOURCE_DIR:STATIC=/home/patrick/Projects/sr.ht/micro-desktop/spreadsheets
+CppExplorer_SOURCE_DIR:STATIC=/home/patrick/Projects/sr.ht/micro-desktop/file-explorer
 
 //Path to a file.
 OPENGL_EGL_INCLUDE_DIR:PATH=/usr/include
@@ -272,15 +248,24 @@ PKG_CONFIG_ARGN:STRING=
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
 
-//Set to ON to build Arrow conversion functions (in ./python)
-PYTHON:BOOL=OFF
-
 //Additional directories where find(Qt6 ...) host Qt components
 // are searched
 QT_ADDITIONAL_HOST_PACKAGES_PREFIX_PATH:STRING=
 
 //Additional directories where find(Qt6 ...) components are searched
 QT_ADDITIONAL_PACKAGES_PREFIX_PATH:STRING=
+
+//The directory containing a CMake configuration file for Qt5Core.
+Qt5Core_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5Core
+
+//The directory containing a CMake configuration file for Qt5Gui.
+Qt5Gui_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui
+
+//The directory containing a CMake configuration file for Qt5Widgets.
+Qt5Widgets_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets
+
+//The directory containing a CMake configuration file for Qt5.
+Qt5_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5
 
 //The directory containing a CMake configuration file for Qt6CoreTools.
 Qt6CoreTools_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt6CoreTools
@@ -309,16 +294,6 @@ Qt6Widgets_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt6Widgets
 //The directory containing a CMake configuration file for Qt6.
 Qt6_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt6
 
-//Set to ON to build executable code samples (in ./samples)
-SAMPLES:BOOL=OFF
-
-//Set to ON to build xlnt as a static library instead of a shared
-// library
-STATIC:BOOL=OFF
-
-//Set to OFF to skip building test executable (in ./tests)
-TESTS:BOOL=ON
-
 //Path to a program.
 Vulkan_GLSLANG_VALIDATOR_EXECUTABLE:FILEPATH=Vulkan_GLSLANG_VALIDATOR_EXECUTABLE-NOTFOUND
 
@@ -337,23 +312,8 @@ XKB_INCLUDE_DIR:PATH=XKB_INCLUDE_DIR-NOTFOUND
 //Path to a library.
 XKB_LIBRARY:FILEPATH=XKB_LIBRARY-NOTFOUND
 
-//Value Computed by CMake
-libmath_BINARY_DIR:STATIC=/home/patrick/Projects/sr.ht/micro-desktop/build/spreadsheets/libmath
-
-//Value Computed by CMake
-libmath_IS_TOP_LEVEL:STATIC=OFF
-
-//Value Computed by CMake
-libmath_SOURCE_DIR:STATIC=/home/patrick/Projects/sr.ht/micro-desktop/spreadsheets/libmath
-
-//Value Computed by CMake
-libstudxml_BINARY_DIR:STATIC=/home/patrick/Projects/sr.ht/micro-desktop/build/spreadsheets/xlnt/source/third-party/libstudxml
-
-//Value Computed by CMake
-libstudxml_IS_TOP_LEVEL:STATIC=OFF
-
-//Value Computed by CMake
-libstudxml_SOURCE_DIR:STATIC=/home/patrick/Projects/sr.ht/micro-desktop/spreadsheets/xlnt/third-party/libstudxml
+//Path to a library.
+libsettings:FILEPATH=libsettings-NOTFOUND
 
 //Value Computed by CMake
 micro-desktop_BINARY_DIR:STATIC=/home/patrick/Projects/sr.ht/micro-desktop/build
@@ -363,33 +323,6 @@ micro-desktop_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 micro-desktop_SOURCE_DIR:STATIC=/home/patrick/Projects/sr.ht/micro-desktop
-
-//Value Computed by CMake
-xlnt.test_BINARY_DIR:STATIC=/home/patrick/Projects/sr.ht/micro-desktop/build/spreadsheets/xlnt/tests
-
-//Value Computed by CMake
-xlnt.test_IS_TOP_LEVEL:STATIC=OFF
-
-//Value Computed by CMake
-xlnt.test_SOURCE_DIR:STATIC=/home/patrick/Projects/sr.ht/micro-desktop/spreadsheets/xlnt/tests
-
-//Value Computed by CMake
-xlnt_BINARY_DIR:STATIC=/home/patrick/Projects/sr.ht/micro-desktop/build/spreadsheets/xlnt/source
-
-//Value Computed by CMake
-xlnt_IS_TOP_LEVEL:STATIC=OFF
-
-//Value Computed by CMake
-xlnt_SOURCE_DIR:STATIC=/home/patrick/Projects/sr.ht/micro-desktop/spreadsheets/xlnt/source
-
-//Value Computed by CMake
-xlnt_all_BINARY_DIR:STATIC=/home/patrick/Projects/sr.ht/micro-desktop/build/spreadsheets/xlnt
-
-//Value Computed by CMake
-xlnt_all_IS_TOP_LEVEL:STATIC=OFF
-
-//Value Computed by CMake
-xlnt_all_SOURCE_DIR:STATIC=/home/patrick/Projects/sr.ht/micro-desktop/spreadsheets/xlnt
 
 
 ########################
@@ -500,7 +433,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
