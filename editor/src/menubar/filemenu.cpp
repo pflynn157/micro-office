@@ -51,11 +51,11 @@ FileMenu::FileMenu(QMainWindow *window) {
     saveFileAs->setIcon(IconManager::getIcon("document-save-as"));
     quit->setIcon(IconManager::getIcon("application-exit"));
 
-    newFile->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_N));
-    openFile->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_O));
-    saveFile->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_S));
-    saveFileAs->setShortcut(QKeySequence(Qt::SHIFT+Qt::CTRL+Qt::Key_S));
-    quit->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_Q));
+    newFile->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_N));
+    openFile->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_O));
+    saveFile->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_S));
+    saveFileAs->setShortcut(QKeySequence(Qt::SHIFT | Qt::CTRL | Qt::Key_S));
+    quit->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_Q));
 
     connect(newWin, &QAction::triggered, this, &FileMenu::onNewWindowClicked);
     connect(newFile,&QAction::triggered,new Slots,&Slots::newFileSlot);

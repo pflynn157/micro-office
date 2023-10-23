@@ -1,53 +1,50 @@
-cmake_minimum_required(VERSION 3.0.0)
-project(CppEditor)
-
 set(GLOBAL_SRC
-    global/file_actions.cxx
-    global/recent.cxx
-    global/slots.cxx
+    global/file_actions.cpp
+    global/recent.cpp
+    global/slots.cpp
 )
 
 set(MENUBAR_SRC
-    menubar/editmenu.cxx
-    menubar/filemenu.cxx
-    menubar/helpmenu.cxx
-    menubar/insertmenu.cxx
-    menubar/recent_widgets.cxx
-    menubar/viewmenu.cxx
+    menubar/editmenu.cpp
+    menubar/filemenu.cpp
+    menubar/helpmenu.cpp
+    menubar/insertmenu.cpp
+    menubar/recent_widgets.cpp
+    menubar/viewmenu.cpp
 )
 
 set(MENUS_SRC
-    menus/dock_widget_menu.cxx
-    menus/editor_context.cxx
+    menus/dock_widget_menu.cpp
+    menus/editor_context.cpp
 )
 
 set(PROJECT_SRC
-    project/project_pane.cxx
-    project/project_tree.cxx
+    project/project_pane.cpp
+    project/project_tree.cpp
 )
 
 set(SETTINGS_SRC
-    settings/editor_page.cxx
-    settings/settings_dialog.cxx
+    settings/editor_page.cpp
+    settings/settings_dialog.cpp
 )
 
 set(WINDOWS_SRC
-    windows/date_selector.cxx
-    windows/subwindow.cxx
+    windows/date_selector.cpp
+    windows/subwindow.cpp
 )
 
 set(BASE_SRC
-    actions.cxx
-    cpp_message_widget.cxx
-    editor.cxx
-    main.cxx
-    main_toolbar.cxx
-    tabpane.cxx
-    window.cxx
+    actions.cpp
+    cpp_message_widget.cpp
+    editor.cpp
+    main.cpp
+    main_toolbar.cpp
+    tabpane.cpp
+    window.cpp
     icons.qrc
     rsc.qrc
-    icon.cxx
-    finder.cxx
+    icon.cpp
+    finder.cpp
 )
 
 set(SRC_ALL
@@ -69,14 +66,15 @@ else()
 endif()
 
 target_link_libraries(CppEditor
-    Qt5::Core
-    Qt5::Widgets
+    Qt6::Core
+    Qt6::Widgets
     cppedit_highlighter
 )
 
-if (UNIX)
-    if (APPLE)
-        else()
-            install(TARGETS CppEditor DESTINATION /usr/local/bin)
-    endif()
-endif()
+#if (UNIX)
+#    if (APPLE)
+#        else()
+#            install(TARGETS CppEditor DESTINATION /usr/local/bin)
+#    endif()
+#endif()
+

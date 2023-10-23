@@ -40,14 +40,14 @@ add_library(cppedit_highlighter STATIC ${SRC})
 add_executable(cppedit_test ${TEST_SRC})
 
 target_link_libraries(cppedit_highlighter
-    Qt5::Core
-    Qt5::Widgets
-    Qt5::Gui
+    Qt6::Core
+    Qt6::Widgets
+    Qt6::Gui
 )
 
 target_link_libraries(cppedit_test
     cppedit_highlighter
-    Qt5::Core
-    Qt5::Widgets
-    Qt5::Gui
+    Qt6::Core
+    Qt6::Widgets
+    Qt6::Gui
 )

@@ -225,7 +225,7 @@ void TextEdit::keyPressEvent(QKeyEvent *event) {
         auto cursor = this->textCursor();
         auto selected = cursor.selectedText();
         
-        if (selected.contains("\u2029")) {
+        if (selected.contains(QString("\u2029"))) {
             QString tab = "    ";
             if (Window::useTabs->isChecked())
                 tab = "\t";
@@ -236,7 +236,7 @@ void TextEdit::keyPressEvent(QKeyEvent *event) {
             for (QChar c : selected) {
                 newSelection += c;
             
-                if (c == "\u2029")
+                if (c == QString("\u2029"))
                     newSelection += tab;
             }
             
