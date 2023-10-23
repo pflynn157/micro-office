@@ -7,6 +7,7 @@
 
 #include <QVideoWidget>
 #include <QMediaPlayer>
+#include <QAudioOutput>
 #include <QMouseEvent>
 
 class VideoPane : public QVideoWidget {
@@ -19,8 +20,10 @@ public:
     //static void setAndRunPlaylist(QMediaPlaylist *playlist);
     static void startPlaying();
 protected:
+    QAudioOutput *audio;
 	void mousePressEvent(QMouseEvent *event);
 private slots:
     void onPlayerChanged(qint64 pos);
     void onDurationChanged(qint64 pos);
+    void onErrorOccurred(QMediaPlayer::Error error, QString errorString);
 };

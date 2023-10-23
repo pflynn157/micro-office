@@ -9,6 +9,7 @@
 #include <QAction>
 #include <QUrl>
 #include <QVariant>
+#include <iostream>
 
 #include "videopane.hpp"
 #include "seekbar.hpp"
@@ -19,20 +20,19 @@ QMediaPlayer *VideoPane::player;
 
 VideoPane::VideoPane() {
     player = new QMediaPlayer;
-    //player->setVolume(QVariant(Settings::getSetting("volume","10")).toInt());
-    //player->setVolume(10);
+    audio = new QAudioOutput;
+    player->setAudioOutput(audio);
+    audio->setVolume(10);
     player->setVideoOutput(this);
-    player->setPosition(0);
-    
-	//playlist = new QMediaPlaylist;
-	//player->setPlaylist(playlist);    
+    player->setPosition(0);   
 
     connect(player,SIGNAL(positionChanged(qint64)),this,SLOT(onPlayerChanged(qint64)));
     connect(player,SIGNAL(durationChanged(qint64)),this,SLOT(onDurationChanged(qint64)));
+    connect(player,SIGNAL(errorOccurred(QMediaPlayer::Error, QString)), this, SLOT(onErrorOccurred(QMediaPlayer::Error, QString)));
 }
 
 void VideoPane::addMedia(QString path) {
-	//player->setMedia(QMediaContent(QUrl::fromLocalFile(path)));
+	player->setSource(QUrl::fromLocalFile(path));
 }
 
 /*void VideoPane::setAndRunPlaylist(QMediaPlaylist *playlist) {
@@ -50,6 +50,10 @@ void VideoPane::onPlayerChanged(qint64 pos) {
 
 void VideoPane::onDurationChanged(qint64 pos) {
     SeekBar::setDuration(pos);
+}
+
+void VideoPane::onErrorOccurred(QMediaPlayer::Error error, QString errorString) {
+    std::cout << "[ERROR] " << errorString.toStdString() << std::endl;
 }
 
 void VideoPane::mousePressEvent(QMouseEvent *event) {
