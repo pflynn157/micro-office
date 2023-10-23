@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>rsc/lorem_ipsum.txt</file>
+        <file>rsc/message_widget.css</file>
+        <file>rsc/license.txt</file>
+    </qresource>
+</RCC>
